@@ -7,7 +7,7 @@ const Footer = () => {
       <div className={style.FooterContent}>
         <div className={style.FooterContentLeft}>
             <img src={assets.logo} alt=""  className={style.logo}/>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt rem aperiam voluptatibus architecto! Harum alias veniam, architecto quisquam ratione asperiores?</p>
+            <p>At QuickBite, every craving deserves something delicious. Explore our diverse menu of flavourful dishes and discover your next favourite bite today.</p>
             <div className={style.FooterSocial}>
                 <img src={assets.facebook_icon} alt="" /><img src={assets.twitter_icon} alt="" /><img src={assets.linkedin_icon} alt="" />
             </div>
@@ -17,23 +17,23 @@ const Footer = () => {
                 COMPANY
             </h2>
             <ul>
-                <li>home</li>
-                <li>about</li>
-                <li>deilvery</li>
-                <li>privacy policy</li>
+                <li>Home</li>
+                <li>About</li>
+                <li>Deilvery</li>
+                <li>Privacy Policy</li>
             </ul>
         </div>
         <div className={style.FooterContentRight}>
             <h2>Get In Touch</h2>
             <ul>
-                <li>+91 9902901869</li>
-                <li>QuickBite@gmail.com</li>
+                <li>+91-8126907270</li>
+                <li>Quickbite@gmail.com</li>
             </ul>
         </div>
       </div>
       <hr />
       <p className={style.FooterCopyrigth}>
-        CopyRight 2024 ©️ Company.com - All Rights Reserved.
+        CopyRight 2026 ©️ Company.com - All Rights Reserved.
       </p>
     </div>
   );

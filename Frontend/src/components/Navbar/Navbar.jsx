@@ -3,6 +3,13 @@ import style from "../Navbar/navbar.module.css";
 import { assets } from "../../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
+import {
+    Search,
+    ShoppingBasket,
+    UserRound,
+    ShoppingBag,
+    LogOut
+} from "lucide-react";
 
 const Navbar = ({ setShowLogin }) => {
   // useState used here for menu
@@ -27,7 +34,7 @@ const Navbar = ({ setShowLogin }) => {
           className={menu === "home" ? style.active : ""}
           onClick={() => setMenu("home")}
         >
-          home
+          Home
         </Link>
         <a
           href="#ExploreMenu"
@@ -35,47 +42,86 @@ const Navbar = ({ setShowLogin }) => {
           onClick={() => setMenu("menu")}
         >
           {" "}
-          menu
+          Menu
         </a>
         <a
           href="#AppDownload"
           className={menu === "mobile-app" ? style.active : ""}
           onClick={() => setMenu("mobile-app")}
         >
-          mobile-app
+          Mobile-app
         </a>
         <a
           href="#Footer"
           className={menu === "contact-us" ? style.active : ""}
           onClick={() => setMenu("contact-us")}
         >
-          contact us
+          Contact us
         </a>
       </ul>
+
       <div className={style.navbarRight}>
-        <img src={assets.search_icon} />
-        <div className={style.searchIcon}>
-          <Link to='/cart'>
-            <img src={assets.basket_icon} />
+
+        {/* Search */}
+        <Search
+          className={style.navIcon}
+          size={27}
+          strokeWidth={1.8}
+        />
+
+        {/* Cart */}
+        <div className={style.cartIcon}>
+          <Link to="/cart">
+            <ShoppingBasket
+              className={style.navIcon}
+              size={27}
+              strokeWidth={1.8}
+            />
           </Link>
-          <div className={getTotalCartAmount() ? style.dot : ""}></div>
+
+          {getTotalCartAmount() > 0 && (
+            <span className={style.cartBadge}>
+              {getTotalCartAmount()}
+            </span>
+          )}
         </div>
-        {!token ? <button
-          onClick={() => {
-            setShowLogin(true);
-          }}
-        >
-          Sign in
-        </button> : <div className={style.navbarProfile}>
-          <img src={assets.profile_icon} />
-          <ul className={style.navProfileDropdown}>
-            <li onClick={()=>navigate('/myorders')}><img src={assets.bag_icon} /><p>Orders</p></li>
-            <hr />
-            <li onClick={Logout}><img src={assets.logout_icon} /><p>Logout</p></li>
-          </ul>
-        </div>}
+
+        {/* Profile */}
+        {!token ? (
+          <button
+            className={style.signInButton}
+            onClick={() => setShowLogin(true)}
+          >
+            Sign in
+          </button>
+        ) : (
+          <div className={style.navbarProfile}>
+            <UserRound
+              className={style.navIcon}
+              size={28}
+              strokeWidth={1.8}
+            />
+
+            <ul className={style.navProfileDropdown}>
+
+              <li onClick={() => navigate("/myorders")}>
+                <ShoppingBag size={19} strokeWidth={1.8} />
+                <p>Orders</p>
+              </li>
+
+              <hr />
+
+              <li onClick={Logout}>
+                <LogOut size={19} strokeWidth={1.8} />
+                <p>Logout</p>
+              </li>
+
+            </ul>
+          </div>
+        )}
 
       </div>
+
     </div>
   );
 };
