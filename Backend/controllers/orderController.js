@@ -40,7 +40,7 @@ const placeOrder = async (req, res) => {
             subtotal += food.price * item.quantity;
         }
 
-        const deliveryFee = 50;
+        const deliveryFee = subtotal * 0.10;
         const totalAmount = subtotal + deliveryFee;
 
         // Create order in MongoDB

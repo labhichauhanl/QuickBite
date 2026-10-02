@@ -22,12 +22,17 @@
 
 .Cart hr{
     height: 1px;
-    background-color: #e2e2e2;
+    background-color: white;
     border: none;
 }
 
 .CartItemsItem .Cross{
     cursor: pointer;
+background-color: red;
+    display: flex;
+    justify-content: center;
+    padding: 3px 0px 3px 0px;
+    border-radius: 5px;
 }
 
 .CartBottom{
@@ -63,6 +68,12 @@
     padding: 12px 0px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.checkout:hover{
+    background-color: #ffff00cb;
+    font-weight: bold;
+    transition: ease-in-out .1s;
 }
 
 .CartPromoCode{

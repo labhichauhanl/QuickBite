@@ -23,6 +23,7 @@ const Cart = () => {
         <hr />
         {food_list.map((item, index) => {
           if (cartItem[item._id] > 0) {
+
             return (
               <div>
                 <div
@@ -30,14 +31,14 @@ const Cart = () => {
                 >
                   <img src={URl+"/images/"+item.image} alt="" />
                   <p>{item.name}</p>
-                  <p>${item.price}</p>
+                  <p>₹{item.price}</p>
                   <p>{cartItem[item._id]}</p>
                   <p>${item.price * cartItem[item._id]}</p>
                   <p
                     className={style.Cross}
                     onClick={() => removeFromCart(item._id)}
                   >
-                    x
+                    Delete
                   </p>
                 </div>
                 <hr />
@@ -46,27 +47,32 @@ const Cart = () => {
           }
         })}
       </div>
+
       <div className={style.CartBottom}>
         <div className={style.CartTotal}>
           <h2>Cart Total</h2>
           <div>
+
             <div className={style.CartTotalDetails}>
               <p>Subtotal</p>
-              <p>${getTotalCartAmount()}</p>
+              <p>₹{getTotalCartAmount()}</p>
             </div>
             <hr />
+            
             <div className={style.CartTotalDetails}>
               <p>Delivery Fee</p>
-              <p>${getTotalCartAmount()===0?0:5}</p> 
+              <p>₹{getTotalCartAmount()===0?0: getTotalCartAmount() * 0.10}</p> 
             </div> 
             <hr />
+            
             <div className={style.CartTotalDetails}>
               <b>Total</b>
-              <b>${getTotalCartAmount()===0?0:getTotalCartAmount()+5}</b>
+              <b>₹{getTotalCartAmount()===0?0: getTotalCartAmount() + getTotalCartAmount() * 0.10}</b>
             </div>
           </div>
-          <button onClick={()=>navigate('/placeorder')}>Checkout</button>
+          <button className={style.checkout} onClick={()=>navigate('/placeorder')}>Checkout</button>
         </div>
+        
         <div className={style.CartPromoCode}>
           <div>
             <p>If you have promo code then add here</p>
@@ -76,6 +82,7 @@ const Cart = () => {
             </div>
           </div>
         </div>
+      
       </div>
     </div>
   );
