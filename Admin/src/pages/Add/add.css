@@ -37,11 +37,36 @@
 }
 
 .add-btn{
-    max-width: 120px;
-    border: none;
-    padding: 10px;
-    background-color: black;
-    color: white;
+    width: 100px;
+    border: 1px solid black;
+    padding: 5px 2px;
+    font-size: large;
+    font-weight: bold;
+    background-color: yellow;
+    color: black;
     cursor: pointer;
+    border-radius: 5px;
 }
 
+.add-btn:hover{
+    background-color: rgb(231, 231, 0);
+}
+
+.flex-col{
+    color: black;
+}
+
+.add-product-name input,
+.add-product-desc textarea,
+.add-price input,
+.add-category select {
+    color: #111111;
+    background-color: #ffffff;
+}
+
+.add-product-name input::placeholder,
+.add-product-desc textarea::placeholder,
+.add-price input::placeholder {
+    color: #888888;
+    opacity: 1;
+}

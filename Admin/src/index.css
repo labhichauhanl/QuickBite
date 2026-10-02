@@ -37,3 +37,29 @@ hr{
 .cursor{
   cursor: pointer;
 }
+
+.Toastify__toast {
+    color: #222222 !important;
+    background: #ffffff !important;
+}
+
+.Toastify__toast-body {
+    color: #222222 !important;
+}
+
+.Toastify__toast-body > div:last-child {
+    color: #222222 !important;
+}
+
+.Toastify__toast--success {
+    color: #222222 !important;
+    background: #ffffff !important;
+}
+
+.Toastify__toast--success .Toastify__toast-icon {
+    color: #16a34a;
+}
+
+.Toastify__progress-bar--success {
+    background: #eded05 !important;
+}

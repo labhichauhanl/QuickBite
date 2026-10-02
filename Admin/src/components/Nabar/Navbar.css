@@ -12,3 +12,35 @@
 .Navbar .profile{
     width: 40px;
 }
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.admin-info {
+    text-align: right;
+}
+
+.admin-name {
+    margin: 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.admin-info span {
+    display: block;
+    margin-top: 2px;
+    color: #999999;
+    font-size: 11px;
+}
+
+.admin-profile img {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #eded05;
+}
