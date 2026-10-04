@@ -4,7 +4,7 @@ import axios from "axios";
 
 const StoreContextProvider = (props) => {
   const [cartItem, setCartItems] = useState({});
-  const URl = "https://quickbite.onrender.com";
+  const URl = "https://quickbite-lqil.onrender.com";
   const [token , setToken] = useState("")
   const [food_list,setFoodList] = useState([])
 
@@ -39,10 +39,15 @@ const StoreContextProvider = (props) => {
     return totalAmount;
   };
 
-  const fetchFoodList = async ()=>{
-    const response = await axios.get("https://quickbite.onrender.com/api/food/list")
-    setFoodList(response.data.data)
+  const fetchFoodList = async () => {
+  try {
+    const response = await axios.get(URl + "/api/food/list");
+    setFoodList(response.data.data || []);
+  } catch (error) {
+    console.error("Error fetching food list:", error);
+    setFoodList([]);
   }
+};
 
   const loadcartData = async (token) => {
     const response = await axios.post(URl+"/api/cart/get",{}, {headers: {token}})
