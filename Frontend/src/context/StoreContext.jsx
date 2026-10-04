@@ -4,7 +4,7 @@ import axios from "axios";
 
 const StoreContextProvider = (props) => {
   const [cartItem, setCartItems] = useState({});
-  const URl = "http://localhost:4000"
+  const URl = "https://quickbite.onrender.com";
   const [token , setToken] = useState("")
   const [food_list,setFoodList] = useState([])
 
@@ -40,7 +40,7 @@ const StoreContextProvider = (props) => {
   };
 
   const fetchFoodList = async ()=>{
-    const response = await axios.get(URl+"/api/food/list")
+    const response = await axios.get("https://quickbite.onrender.com/api/food/list")
     setFoodList(response.data.data)
   }
 
